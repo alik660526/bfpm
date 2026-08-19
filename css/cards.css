@@ -1,9 +1,6 @@
 /* ================================================================
-   UI Kit — Cards (Карточки товаров и категорий)
-   Версия: 1.2
+   UI Kit — Cards (Карточки) v2.0 – новый стиль
    ================================================================ */
-
-/* --- Сетка карточек --- */
 
 .card-grid {
     display: grid;
@@ -11,37 +8,30 @@
     gap: 30px;
 }
 
-/* --- Базовая карточка --- */
-
 .card {
     background: var(--bg-card);
-    border-radius: 16px;
+    border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--border-light);
+    border: none;
 }
 
 .card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
 }
-
-/* --- Изображение карточки --- */
 
 .card__image {
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: contain;
-    background: var(--bg-gray);
-    display: block;
-    padding: 10px;
+    background: var(--bg-body);
+    padding: 16px;
 }
-
-/* --- Тело карточки --- */
 
 .card__body {
     padding: 20px;
@@ -51,7 +41,7 @@
 }
 
 .card__title {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-primary);
     line-height: 1.2;
@@ -68,7 +58,7 @@
 .card__price {
     font-weight: 700;
     color: var(--primary);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     margin-bottom: 16px;
 }
 
@@ -78,31 +68,27 @@
     flex-wrap: wrap;
 }
 
-/* --- Бейдж на карточке --- */
-
 .card__badge {
     display: inline-block;
     background: var(--primary);
     color: #fff;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 6px 16px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 14px;
     border-radius: 20px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     align-self: flex-start;
     margin: 15px 15px 0;
     position: relative;
     z-index: 2;
 }
 
-/* --- Модификатор: главный продукт --- */
-
+/* Убираем красные рамки и выделения */
 .card--featured {
     border: 2px solid var(--primary);
 }
 
-/* --- Карточка категории (без изображения) --- */
-
+/* Простая карточка (без изображения) */
 .card--simple {
     padding: 24px;
 }
@@ -111,8 +97,7 @@
     margin-bottom: 6px;
 }
 
-/* --- Адаптив --- */
-
+/* Адаптив */
 @media (max-width: 992px) {
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -126,8 +111,5 @@
     }
     .card__image {
         aspect-ratio: 1 / 1;
-    }
-    .card--featured {
-        transform: none;
     }
 }

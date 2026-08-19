@@ -1,13 +1,11 @@
 /* ================================================================
-   UI Kit — Header (Шапка) v2.0
-   Компактное меню, выпадающие подменю, кнопка «Связаться»
+   UI Kit — Header (Шапка) v3.0 – новая цветовая система
    ================================================================ */
 
 .header {
     background: var(--bg-header);
-    backdrop-filter: blur(10px);
-    padding: 10px 0;
-    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.03);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -21,8 +19,7 @@
     gap: 15px;
 }
 
-/* --- Логотип --- */
-
+/* Логотип */
 .header__logo {
     flex-shrink: 0;
 }
@@ -30,15 +27,15 @@
 .header__logo-link {
     display: flex;
     align-items: center;
-    gap: 8px;
-    white-space: nowrap;
+    gap: 6px;
     text-decoration: none;
 }
 
 .header__logo-text {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--text-primary);
+    letter-spacing: -0.5px;
 }
 
 .header__logo-sub {
@@ -48,8 +45,7 @@
     white-space: nowrap;
 }
 
-/* --- Навигация --- */
-
+/* Навигация */
 .header__nav {
     flex-shrink: 1;
 }
@@ -57,27 +53,19 @@
 .header__menu {
     display: flex;
     list-style: none;
-    gap: 20px;
-    white-space: nowrap;
-    margin: 0;
-    padding: 0;
-}
-
-.header__menu-item {
-    position: relative;
+    gap: 24px;
     margin: 0;
     padding: 0;
 }
 
 .header__menu-link {
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
-    padding: 8px 0;
-    transition: color 0.25s ease;
-    white-space: nowrap;
+    padding: 6px 0;
+    transition: color 0.2s;
     text-decoration: none;
-    cursor: pointer;
+    white-space: nowrap;
 }
 
 .header__menu-link:hover,
@@ -85,30 +73,27 @@
     color: var(--primary);
 }
 
-/* --- Выпадающее подменю --- */
-
+/* Выпадающие подменю */
 .header__submenu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background: var(--bg-card);
-    border-radius: 12px;
+    background: var(--bg-white);
+    border-radius: var(--radius-card);
     box-shadow: var(--shadow-card-hover);
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-color);
     padding: 8px 0;
     min-width: 200px;
     z-index: 1001;
-    list-style: none;
+}
+
+.header__menu-item {
+    position: relative;
 }
 
 .header__menu-item:hover .header__submenu {
     display: block;
-}
-
-.header__submenu-item {
-    margin: 0;
-    padding: 0;
 }
 
 .header__submenu-link {
@@ -117,34 +102,41 @@
     font-size: 0.9rem;
     color: var(--text-secondary);
     text-decoration: none;
-    white-space: nowrap;
     transition: background 0.2s, color 0.2s;
 }
 
 .header__submenu-link:hover {
-    background: var(--primary-light);
+    background: var(--bg-light-blue);
     color: var(--primary);
 }
 
-/* --- Правая часть --- */
-
+/* Правая часть */
 .header__right {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     flex-shrink: 0;
-    white-space: nowrap;
 }
 
-/* Кнопка «Связаться» */
 .header__contact-btn {
     position: relative;
 }
 
 .header__contact-toggle {
-    padding: 10px 22px;
+    padding: 8px 20px;
     font-size: 0.9rem;
     font-weight: 600;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: var(--radius-btn);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.header__contact-toggle:hover {
+    background: var(--primary);
+    color: #fff;
 }
 
 .header__contact-dropdown {
@@ -152,12 +144,12 @@
     position: absolute;
     top: 100%;
     right: 0;
-    background: var(--bg-card);
-    border-radius: 12px;
+    background: var(--bg-white);
+    border-radius: var(--radius-card);
     box-shadow: var(--shadow-card-hover);
-    border: 1px solid var(--border-light);
+    border: 1px solid var(--border-color);
     padding: 8px 0;
-    min-width: 220px;
+    min-width: 200px;
     z-index: 1001;
     list-style: none;
 }
@@ -166,16 +158,11 @@
     display: block;
 }
 
-.header__contact-item {
-    margin: 0;
-    padding: 0;
-}
-
 .header__contact-link {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 20px;
+    padding: 10px 20px;
     font-size: 0.95rem;
     color: var(--text-primary);
     text-decoration: none;
@@ -183,24 +170,20 @@
 }
 
 .header__contact-link:hover {
-    background: var(--primary-light);
+    background: var(--bg-light-blue);
 }
 
-/* --- Бургер --- */
-
+/* Бургер */
 .header__burger {
     display: none;
     font-size: 2rem;
     cursor: pointer;
-    color: var(--text-primary);
-    line-height: 1;
     background: none;
     border: none;
-    padding: 0;
+    color: var(--text-primary);
 }
 
-/* --- Мобильное меню (полноэкранное) --- */
-
+/* Мобильное меню */
 .mobile-menu {
     display: none;
     position: fixed;
@@ -208,7 +191,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--bg-body);
+    background: var(--bg-white);
     z-index: 2000;
     flex-direction: column;
     padding: 20px;
@@ -225,22 +208,21 @@
     align-items: center;
     margin-bottom: 30px;
     padding-bottom: 15px;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .mobile-menu__logo {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--text-primary);
 }
 
 .mobile-menu__close {
     font-size: 2rem;
-    cursor: pointer;
-    color: var(--text-primary);
     background: none;
     border: none;
-    line-height: 1;
+    color: var(--text-primary);
+    cursor: pointer;
 }
 
 .mobile-menu__list {
@@ -282,15 +264,10 @@
     padding-top: 20px;
 }
 
-.mobile-menu__cta .btn {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
 .mobile-menu__contacts {
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid var(--border-light);
+    border-top: 1px solid var(--border-color);
 }
 
 .mobile-menu__contacts a {
@@ -303,14 +280,13 @@
     text-decoration: none;
 }
 
-/* --- Адаптив --- */
-
+/* Адаптив */
 @media (max-width: 1200px) {
     .header__logo-sub {
         display: none;
     }
     .header__menu {
-        gap: 14px;
+        gap: 16px;
     }
     .header__menu-link {
         font-size: 0.85rem;
@@ -319,13 +295,13 @@
 
 @media (max-width: 992px) {
     .header__menu {
-        gap: 10px;
+        gap: 12px;
     }
     .header__menu-link {
         font-size: 0.8rem;
     }
     .header__contact-toggle {
-        padding: 8px 16px;
+        padding: 6px 14px;
         font-size: 0.8rem;
     }
 }

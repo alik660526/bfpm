@@ -1,9 +1,7 @@
 /* ================================================================
    UI Kit — Layout (Контейнер, секции, сетка)
-   Версия: 1.0
+   Версия: 2.0 (с новыми фонами)
    ================================================================ */
-
-/* --- Контейнер --- */
 
 .container {
     max-width: 1360px;
@@ -11,21 +9,31 @@
     padding: 0 32px;
 }
 
-/* --- Секции --- */
-
 .section {
     padding: 100px 0;
 }
 
-.section--gray {
-    background: var(--bg-gray);
+/* Фоны секций */
+.section--light {
+    background: var(--bg-body);
 }
 
-.section--accent {
-    background: var(--primary-light);
+.section--white {
+    background: var(--bg-white);
 }
 
-/* --- Заголовок секции --- */
+.section--blue {
+    background: var(--bg-light-blue);
+}
+
+.section--dark {
+    background: var(--bg-footer);
+    color: var(--text-footer);
+}
+
+.section--dark .section__title {
+    color: #fff;
+}
 
 .section__title {
     font-size: 2.8rem;
@@ -37,8 +45,7 @@
     line-height: 1.2;
 }
 
-/* --- Адаптив --- */
-
+/* Адаптив */
 @media (max-width: 768px) {
     .container {
         padding: 0 16px;

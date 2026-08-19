@@ -1,6 +1,5 @@
 /* ================================================================
-   UI Kit — Footer (Подвал)
-   Версия: 1.0
+   UI Kit — Footer (Подвал) v2.0 – новый цвет
    ================================================================ */
 
 .footer {
@@ -17,7 +16,7 @@
 }
 
 .footer__col-title {
-    color: #E8EBE7;
+    color: var(--text-footer-heading);
     margin-bottom: 15px;
     font-weight: 600;
     font-size: 1.1rem;
@@ -50,7 +49,7 @@
 }
 
 .footer__bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 20px;
     text-align: center;
     font-size: 0.9rem;
@@ -65,8 +64,7 @@
     color: #fff;
 }
 
-/* --- Адаптив --- */
-
+/* Адаптив */
 @media (max-width: 992px) {
     .footer__grid {
         grid-template-columns: 1fr 1fr;

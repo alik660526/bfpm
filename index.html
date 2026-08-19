@@ -59,7 +59,7 @@
 </head>
 <body>
 
-<!-- ШАПКА v2.0 -->
+<!-- ШАПКА (без изменений в структуре, стили обновлены через CSS) -->
 <header class="header">
     <div class="container header__container">
         <div class="header__logo">
@@ -91,7 +91,7 @@
         </nav>
         <div class="header__right">
             <div class="header__contact-btn">
-                <button class="btn btn--outline header__contact-toggle" id="contactToggle">Связаться</button>
+                <button class="header__contact-toggle" id="contactToggle">Связаться</button>
                 <ul class="header__contact-dropdown" id="contactDropdown">
                     <li class="header__contact-item"><a href="tel:+79183268872" class="header__contact-link">📞 Позвонить</a></li>
                     <li class="header__contact-item"><a href="https://wa.me/79183268872" target="_blank" class="header__contact-link">💬 WhatsApp</a></li>
@@ -105,7 +105,7 @@
     </div>
 </header>
 
-<!-- МОБИЛЬНОЕ МЕНЮ -->
+<!-- Мобильное меню (без изменений) -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu__header">
         <span class="mobile-menu__logo">ПАПИР-МАРКЕТ</span>
@@ -142,19 +142,20 @@
     </div>
 </div>
 
-<section class="hero" style="background-image: url('images/glavnaya/hero-bg.webp');">
-    <div class="hero__overlay"></div>
+<!-- HERO – без фонового изображения, светлый -->
+<section class="hero">
     <div class="hero__content">
         <h1 class="hero__title">Защитные картонные уголки</h1>
         <p class="hero__subtitle">Собственное производство. Оптовые поставки по России.</p>
         <div class="hero__actions">
             <a href="calculator.html" class="btn btn--primary btn--large">Получить цену</a>
-            <a href="#samples" class="btn btn--outline-light btn--large">Получить образцы</a>
+            <a href="#samples" class="btn btn--outline btn--large">Получить образцы</a>
         </div>
     </div>
 </section>
 
-<section class="section" data-section-name="Преимущества">
+<!-- Преимущества – фон #F4F6F5 (по умолчанию) -->
+<section class="section section--light" data-section-name="Преимущества">
     <div class="container">
         <div class="card-grid">
             <div class="card card--simple">
@@ -177,7 +178,8 @@
     </div>
 </section>
 
-<section class="section section--gray" data-section-name="Продукция">
+<!-- Продукция – белый фон -->
+<section class="section section--white" data-section-name="Продукция">
     <div class="container">
         <h2 class="section__title">Наша продукция</h2>
         <div class="card-grid">
@@ -189,7 +191,7 @@
                     <p class="card__text">Для защиты краёв продукции при транспортировке. Используется в мебельном, пищевом и сельскохозяйственном производствах.</p>
                     <div class="card__actions">
                         <a href="product.html?id=1359" class="btn btn--primary">Рассчитать стоимость</a>
-                        <a href="catalog.html?category=corner" class="btn btn--secondary">Все размеры</a>
+                        <a href="catalog.html?category=corner" class="btn btn--outline">Все размеры</a>
                     </div>
                 </div>
             </div>
@@ -200,7 +202,7 @@
                     <h3 class="card__title">Картон товарный в рулонах</h3>
                     <p class="card__text">Качественный картон для производства гофрокартона. Поставляется в рулонах.</p>
                     <div class="card__actions">
-                        <a href="catalog.html?category=karton" class="btn btn--secondary">Подробнее</a>
+                        <a href="catalog.html?category=karton" class="btn btn--primary">Подробнее</a>
                     </div>
                 </div>
             </div>
@@ -211,7 +213,7 @@
                     <h3 class="card__title">Крафт-бумага</h3>
                     <p class="card__text">Высокопрочная упаковочная бумага в рулонах для промышленных нужд.</p>
                     <div class="card__actions">
-                        <a href="catalog.html?category=fluting" class="btn btn--secondary">Подробнее</a>
+                        <a href="catalog.html?category=fluting" class="btn btn--primary">Подробнее</a>
                     </div>
                 </div>
             </div>
@@ -219,7 +221,8 @@
     </div>
 </section>
 
-<section class="section section--accent" data-section-name="Калькулятор">
+<!-- Калькулятор – светло-голубой фон -->
+<section class="section section--blue" data-section-name="Калькулятор">
     <div class="container">
         <h2 class="section__title">Рассчитайте стоимость под свой объём</h2>
         <div class="form-container">
@@ -254,7 +257,8 @@
     </div>
 </section>
 
-<section class="section" data-section-name="Образцы">
+<!-- Образцы – белый фон (или можно оставить светлый, но я сделаю белый) -->
+<section class="section section--white" id="samples" data-section-name="Образцы">
     <div class="container">
         <h2 class="section__title">Получить тестовые образцы</h2>
         <div style="max-width:600px; margin:0 auto;">
@@ -288,7 +292,8 @@
                         <span>Я даю согласие на <a href="policy.html" target="_blank">обработку персональных данных</a></span>
                     </label>
 
-                    <button type="submit" class="btn btn--primary form-submit">Запросить образцы</button>
+                    <!-- Зелёная кнопка для особого действия (запрос образцов) -->
+                    <button type="submit" class="btn btn--green form-submit">Запросить образцы</button>
                 </form>
                 <div id="samplesResult" class="form-result">
                     <p>✅ Спасибо! Запрос на образцы отправлен.</p>
@@ -299,7 +304,8 @@
     </div>
 </section>
 
-<section class="section" data-section-name="FAQ">
+<!-- FAQ – светлый фон -->
+<section class="section section--light" data-section-name="FAQ">
     <div class="container">
         <h2 class="section__title">Часто задаваемые вопросы</h2>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:900px; margin:0 auto;">
@@ -313,12 +319,12 @@
     </div>
 </section>
 
-<section class="contacts-fullscreen" style="position:relative; background-image:url('images/obshie/004.webp'); background-size:cover; background-position:center; padding:80px 0; color:#fff;">
-    <div class="contacts-overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background:var(--bg-contacts-overlay); z-index:1;"></div>
-    <div class="container" style="position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+<!-- Блок контактов – тёмно-синий фон (вместо изображения с оверлеем) -->
+<section class="section section--dark" data-section-name="Контакты" style="padding:60px 0;">
+    <div class="container" style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
         <div>
-            <h3 style="color:#fff;">Обратная связь</h3>
-            <form id="contactForm" style="display:flex; flex-direction:column; gap:12px; background:rgba(255,255,255,0.95); padding:20px; border-radius:12px;">
+            <h3 style="color:#fff; margin-bottom:20px;">Обратная связь</h3>
+            <form id="contactForm" style="display:flex; flex-direction:column; gap:12px; background:rgba(255,255,255,0.95); padding:20px; border-radius:var(--radius-modal);">
                 <input type="text" name="name" class="form-input" placeholder="Ваше имя" required>
                 <input type="tel" name="phone" class="form-input" placeholder="Телефон" required>
                 <input type="email" name="email" class="form-input" placeholder="Email">
@@ -327,15 +333,15 @@
                     <input type="checkbox" name="personal_data_consent" value="yes" required>
                     <span>Я даю согласие на <a href="policy.html" target="_blank">обработку персональных данных</a></span>
                 </label>
-                <button type="submit" class="btn btn--primary">Отправить</button>
+                <button type="submit" class="btn btn--light">Отправить</button>
             </form>
         </div>
-        <div style="color:#fff;">
-            <h3>Контактная информация</h3>
-            <p><strong>Телефон:</strong> <a href="tel:+79183268872" style="color:#fff;">+7 918 326-88-72</a></p>
-            <p><strong>Email:</strong> <a href="mailto:papir-market.sale@mail.ru" style="color:#fff;">papir-market.sale@mail.ru</a></p>
-            <p><strong>Адрес:</strong> 352244, Краснодарский край, Новокубанский р-н, г. Новокубанск, ул. Новаторов, д. 1/10</p>
-            <p><strong>Режим работы:</strong> Пн–Пт 9:00 – 18:00</p>
+        <div style="color:var(--text-footer);">
+            <h3 style="color:#fff;">Контактная информация</h3>
+            <p><strong style="color:#fff;">Телефон:</strong> <a href="tel:+79183268872" style="color:#fff;">+7 918 326-88-72</a></p>
+            <p><strong style="color:#fff;">Email:</strong> <a href="mailto:papir-market.sale@mail.ru" style="color:#fff;">papir-market.sale@mail.ru</a></p>
+            <p><strong style="color:#fff;">Адрес:</strong> 352244, Краснодарский край, Новокубанский р-н, г. Новокубанск, ул. Новаторов, д. 1/10</p>
+            <p><strong style="color:#fff;">Режим работы:</strong> Пн–Пт 9:00 – 18:00</p>
             <p style="margin-top:15px;">
                 📲 <a href="https://wa.me/79183268872" style="color:#fff; text-decoration:underline;">WhatsApp</a>
                 | <a href="https://t.me/in4707" style="color:#fff; text-decoration:underline;">Telegram</a>
@@ -344,6 +350,7 @@
     </div>
 </section>
 
+<!-- ФУТЕР – тёмно-синий (уже задан через класс .section--dark, но футер отдельный) -->
 <footer class="footer">
     <div class="container">
         <div class="footer__grid">
@@ -387,6 +394,7 @@
     </div>
 </footer>
 
+<!-- Плавающие кнопки (без изменений) -->
 <div class="floating">
     <a href="https://wa.me/79183268872?text=Здравствуйте!%20Хочу%20заказать%20продукцию%20ООО%20ПАПИР-МАРКЕТ." target="_blank" rel="noopener noreferrer" class="floating__btn floating__btn--whatsapp" aria-label="Написать в WhatsApp">💬</a>
     <a href="https://t.me/in4707?text=Здравствуйте!%20Хочу%20заказать%20продукцию%20ООО%20ПАПИР-МАРКЕТ." target="_blank" rel="noopener noreferrer" class="floating__btn floating__btn--telegram" aria-label="Написать в Telegram">✈️</a>
