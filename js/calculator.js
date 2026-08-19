@@ -1,10 +1,10 @@
 /* ================================================================
    Модуль: Калькулятор (calculator.html)
-   Версия: 1.0
+   Версия: 2.1 – добавлена крафт-бумага, обработка "цена по запросу"
    ================================================================ */
 
 function initCalculator() {
-    if (typeof data === 'undefined' || !data.products || !data.products.corner) return;
+    if (typeof data === 'undefined' || !data.products) return;
 
     var select = document.getElementById('productSelect');
     var calcBtn = document.getElementById('calcBtn');
@@ -15,25 +15,34 @@ function initCalculator() {
 
     if (!select || !calcBtn) return;
 
-    var corners = data.products.corner;
+    // Собираем все товары (уголки + крафт-бумага)
+    var allProducts = [];
+    if (data.products.corner) allProducts = allProducts.concat(data.products.corner);
+    if (data.products.kraftPaper) allProducts = allProducts.concat(data.products.kraftPaper);
 
     // Заполнение селекта
-    corners.forEach(function (p) {
+    allProducts.forEach(function (p) {
         var opt = document.createElement('option');
         opt.value = p.id;
-        opt.textContent = p.title + ' (от ' + p.priceMin.toFixed(2) + ' ₽/п.м.)';
+        var label = p.title;
+        if (p.priceMin && p.priceMin > 0) {
+            label += ' (от ' + p.priceMin.toFixed(2) + ' ₽/п.м.)';
+        } else {
+            label += ' (цена по запросу)';
+        }
+        opt.textContent = label;
         select.appendChild(opt);
     });
 
     // Кнопка «Рассчитать»
     calcBtn.addEventListener('click', function () {
-        var id = parseInt(select.value);
+        var id = select.value; // id может быть строкой (у крафт-бумаги)
         var qty = parseInt(quantityInput ? quantityInput.value : 0) || 0;
 
         var product = null;
-        for (var i = 0; i < corners.length; i++) {
-            if (corners[i].id === id) {
-                product = corners[i];
+        for (var i = 0; i < allProducts.length; i++) {
+            if (String(allProducts[i].id) === String(id)) {
+                product = allProducts[i];
                 break;
             }
         }
@@ -44,11 +53,18 @@ function initCalculator() {
             return;
         }
 
+        // Если это крафт-бумага — цена по запросу
+        if (!product.priceUpTo500) {
+            if (totalPrice) totalPrice.textContent = 'Цена по запросу';
+            if (unitPrice) unitPrice.textContent = 'По запросу';
+            return;
+        }
+
         var pricePerUnit = product.priceOver3000;
-        if (qty <= 100) pricePerUnit = product.priceTo100;
-        else if (qty <= 500) pricePerUnit = product.priceTo500;
-        else if (qty <= 1000) pricePerUnit = product.priceTo1000;
-        else if (qty <= 3000) pricePerUnit = product.priceTo3000;
+        if (qty <= 500) pricePerUnit = product.priceUpTo500;
+        else if (qty <= 1000) pricePerUnit = product.priceUpTo1000;
+        else if (qty <= 3000) pricePerUnit = product.priceUpTo3000;
+        // иначе остаётся priceOver3000
 
         var total = pricePerUnit * qty;
 
@@ -70,14 +86,14 @@ function initCalculator() {
             orderBtn.disabled = true;
             orderBtn.textContent = 'Отправка...';
 
-            var id = parseInt(select.value);
+            var id = select.value;
             var qty = parseInt(quantityInput ? quantityInput.value : 0) || 0;
             var total = totalPrice ? totalPrice.textContent : '0';
 
             var product = null;
-            for (var i = 0; i < corners.length; i++) {
-                if (corners[i].id === id) {
-                    product = corners[i];
+            for (var i = 0; i < allProducts.length; i++) {
+                if (String(allProducts[i].id) === String(id)) {
+                    product = allProducts[i];
                     break;
                 }
             }

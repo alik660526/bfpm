@@ -59,7 +59,7 @@
 </head>
 <body>
 
-<!-- ШАПКА (без изменений в структуре, стили обновлены через CSS) -->
+<!-- ШАПКА (без изменений) -->
 <header class="header">
     <div class="container header__container">
         <div class="header__logo">
@@ -178,7 +178,7 @@
     </div>
 </section>
 
-<!-- Продукция – белый фон -->
+<!-- Продукция – белый фон (возвращена карточка картона) -->
 <section class="section section--white" data-section-name="Продукция">
     <div class="container">
         <h2 class="section__title">Наша продукция</h2>
@@ -196,6 +196,7 @@
                 </div>
             </div>
 
+            <!-- Возвращаем картон -->
             <div class="card">
                 <img src="images/glavnaya/KARTON.webp" alt="Картон товарный в рулонах" width="800" height="800" class="card__image" loading="lazy" onerror="this.src='images/zaglushki/no-image.webp'">
                 <div class="card__body">
@@ -213,7 +214,7 @@
                     <h3 class="card__title">Крафт-бумага</h3>
                     <p class="card__text">Высокопрочная упаковочная бумага в рулонах для промышленных нужд.</p>
                     <div class="card__actions">
-                        <a href="catalog.html?category=fluting" class="btn btn--primary">Подробнее</a>
+                        <a href="catalog.html?category=kraft" class="btn btn--primary">Подробнее</a>
                     </div>
                 </div>
             </div>
@@ -257,7 +258,7 @@
     </div>
 </section>
 
-<!-- Образцы – белый фон (или можно оставить светлый, но я сделаю белый) -->
+<!-- Образцы – белый фон (возвращена опция картона) -->
 <section class="section section--white" id="samples" data-section-name="Образцы">
     <div class="container">
         <h2 class="section__title">Получить тестовые образцы</h2>

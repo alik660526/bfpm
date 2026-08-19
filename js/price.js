@@ -1,6 +1,6 @@
 /* ================================================================
    Модуль: Прайс-лист (таблица и форма КП)
-   Версия: 1.0
+   Версия: 2.0 – новые диапазоны цен
    ================================================================ */
 
 function initPrice() {
@@ -16,13 +16,36 @@ function initPrice() {
             var tr = document.createElement('tr');
             tr.innerHTML =
                 '<td class="table__name">' + p.title + '</td>' +
-                '<td class="table__price">' + p.priceTo100.toFixed(2) + '</td>' +
-                '<td class="table__price">' + p.priceTo500.toFixed(2) + '</td>' +
-                '<td class="table__price">' + p.priceTo1000.toFixed(2) + '</td>' +
-                '<td class="table__price">' + p.priceTo3000.toFixed(2) + '</td>' +
+                '<td class="table__price">' + p.priceUpTo500.toFixed(2) + '</td>' +
+                '<td class="table__price">' + p.priceUpTo1000.toFixed(2) + '</td>' +
+                '<td class="table__price">' + p.priceUpTo3000.toFixed(2) + '</td>' +
                 '<td class="table__price">' + p.priceOver3000.toFixed(2) + '</td>';
             tbody.appendChild(tr);
         });
+    }
+
+    // --- Заполнение селекта в форме "Запрос КП" ---
+    var priceSelect = document.getElementById('priceProduct');
+    if (priceSelect) {
+        // Очищаем старые опции, оставляя только заглушку
+        priceSelect.innerHTML = '<option value="">— Выберите —</option>';
+
+        // Добавляем уголки
+        data.products.corner.forEach(function (p) {
+            var opt = document.createElement('option');
+            opt.value = p.id;
+            opt.textContent = p.title;
+            priceSelect.appendChild(opt);
+        });
+
+        // Добавляем крафт-бумагу (если она есть)
+        if (data.products.kraftPaper && data.products.kraftPaper.length > 0) {
+            var kraft = data.products.kraftPaper[0];
+            var optKraft = document.createElement('option');
+            optKraft.value = kraft.id;
+            optKraft.textContent = kraft.title + ' (цена по запросу)';
+            priceSelect.appendChild(optKraft);
+        }
     }
 
     // --- Форма запроса КП ---

@@ -1,6 +1,6 @@
 /* ================================================================
    Модуль: Каталог (заполнение селектов, фильтры)
-   Версия: 1.0
+   Версия: 2.1 – возвращен картон
    ================================================================ */
 
 function initCatalog() {
@@ -12,12 +12,31 @@ function initCatalog() {
     productSelects.forEach(function (select) {
         if (!select || select.options.length > 1) return; // уже заполнен
 
+        // Заполняем уголками
         data.products.corner.forEach(function (p) {
             var opt = document.createElement('option');
             opt.value = p.id;
             opt.textContent = p.title + ' (от ' + p.priceMin.toFixed(2) + ' ₽/п.м.)';
             select.appendChild(opt);
         });
+
+        // Заполняем крафт-бумагой
+        if (data.products.kraftPaper && data.products.kraftPaper.length > 0) {
+            var kraft = data.products.kraftPaper[0];
+            var optKraft = document.createElement('option');
+            optKraft.value = kraft.id;
+            optKraft.textContent = kraft.title + ' (цена по запросу)';
+            select.appendChild(optKraft);
+        }
+
+        // Заполняем картоном
+        if (data.products.karton && data.products.karton.length > 0) {
+            var karton = data.products.karton[0];
+            var optKarton = document.createElement('option');
+            optKarton.value = karton.id;
+            optKarton.textContent = karton.title + ' (цена по запросу)';
+            select.appendChild(optKarton);
+        }
     });
 
     // --- Каталог с фильтрами ---
@@ -48,8 +67,8 @@ function initCatalog() {
                 });
             });
         }
-        if (category === 'all' || category === 'fluting') {
-            data.products.fluting.forEach(function (p) {
+        if (category === 'all' || category === 'kraft') {
+            data.products.kraftPaper.forEach(function (p) {
                 products.push({
                     id: p.id,
                     title: p.title,

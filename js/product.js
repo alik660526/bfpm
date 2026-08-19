@@ -1,6 +1,6 @@
 /* ================================================================
    Модуль: Карточка товара (product.html)
-   Версия: 1.0
+   Версия: 2.1 – возвращен картон
    ================================================================ */
 
 function initProduct() {
@@ -38,7 +38,7 @@ function findProductById(id) {
 
     var all = [];
     if (data.products.corner) all = all.concat(data.products.corner);
-    if (data.products.fluting) all = all.concat(data.products.fluting);
+    if (data.products.kraftPaper) all = all.concat(data.products.kraftPaper);
     if (data.products.karton) all = all.concat(data.products.karton);
 
     for (var i = 0; i < all.length; i++) {
